@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshay Krishna A - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#667eea',
+                        'secondary': '#764ba2',
+                        'accent': '#f093fb',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body class="font-poppins bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:scale-105 transition-transform duration-300">
+                        Akshay Krishna
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#achievements" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
+                        <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                        <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="nav-toggle p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary">
+                        <span class="sr-only">Open main menu</span>
+                        <div class="w-6 h-6 relative">
+                            <span class="bar absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out" style="top: 6px;"></span>
+                            <span class="bar absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out" style="top: 12px;"></span>
+                            <span class="bar absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out" style="top: 18px;"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23667eea" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left space-y-8">
+                    <div class="space-y-4">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
+                            Hi, I'm 
+                            <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-pulse-slow">
+                                Akshay Krishna A
+                            </span>
+                        </h1>
+                        <p class="text-xl sm:text-2xl text-gray-600 font-medium">
+                            Python Full Stack Developer & Technology Enthusiast
+                        </p>
+                        <p class="text-lg text-gray-500 max-w-2xl">
+                            Passionate and results-driven Technology Enthusiast with strong analytical, problem-solving, and leadership skills, fueled by innovation and a deep interest in cutting-edge technologies.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transform transition-all duration-300">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Get In Touch
+                        </a>
+                        <a href="#projects" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-all duration-300">
+                            <i class="fas fa-eye mr-2"></i>
+                            View My Work
+                        </a>
+                    </div>
+                </div>
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative">
+                        <div class="w-80 h-80 rounded-full bg-gradient-to-br from-primary via-secondary to-accent p-1 animate-float">
+                            <div class="w-full h-full rounded-full bg-white p-2">
+                                <img src="images/WhatsApp Image 2025-01-10 at 16.03.48_c0720739.jpg" 
+                                     alt="Akshay Krishna" 
+                                     class="w-full h-full rounded-full object-cover"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-6xl font-bold" style="display:none;">
+                                    AK
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center animate-pulse">
+                            <i class="fas fa-code text-white text-2xl"></i>
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center animate-bounce">
+                            <i class="fas fa-laptop-code text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-gray-900">Hello! I'm Akshay Krishna A</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        I'm a passionate Technology Enthusiast currently pursuing B.Tech in Computer Science at Lourdes Matha College 
+                        of Science and Technology. With expertise in both frontend and backend development, I specialize in Python Full 
+                        Stack Development and have hands-on experience with cutting-edge technologies.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        As a proven leader, I've served in various roles including IEEE SB LMC Chair, GDSC Lead, and Mu Learn Campus Lead. 
+                        I'm committed to innovation, having secured startup funding from Kerala Startup Mission and won multiple hackathons. 
+                        I love building scalable solutions and contributing to the tech community through mentoring and knowledge sharing.
+                    </p>
+                    <div class="grid grid-cols-3 gap-6 pt-6">
+                        <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg">
+                            <h4 class="text-2xl font-bold text-primary">15+</h4>
+                            <p class="text-gray-600 text-sm">Projects Completed</p>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg">
+                            <h4 class="text-2xl font-bold text-secondary">3+</h4>
+                            <p class="text-gray-600 text-sm">Years Experience</p>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-br from-pink-50 to-purple-50 rounded-lg">
+                            <h4 class="text-2xl font-bold text-accent">10+</h4>
+                            <p class="text-gray-600 text-sm">Technologies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-300"></div>
+                        <img src="images/WhatsApp Image 2025-02-02 at 20.35.43_4dca4a27.jpg" 
+                             alt="About Me" 
+                             class="relative w-80 h-80 object-cover rounded-lg shadow-xl"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="relative w-80 h-80 bg-gradient-to-br from-primary to-secondary rounded-lg shadow-xl flex items-center justify-center text-white text-8xl font-bold" style="display:none;">
+                            AK
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Journey Section -->
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">My Professional Journey</h3>
+                    <p class="text-gray-600 max-w-3xl mx-auto">
+                        From innovative projects to leadership roles, from hackathon victories to startup funding - 
+                        here's a visual story of my journey in technology and entrepreneurship.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/WhatsApp Image 2025-01-10 at 16.03.48_c0720739.jpg" 
+                             alt="Professional Portrait" 
+                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-48 bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-2xl font-bold" style="display:none;">
+                            Professional Growth
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Professional Growth</h4>
+                                <p class="text-sm">Continuously evolving as a technology leader and innovator.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/WhatsApp Image 2025-02-02 at 20.36.22_d9579205.jpg" 
+                             alt="Tech Leadership" 
+                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="w-full h-48 bg-gradient-to-br from-secondary to-accent flex items-center justify-center text-white text-2xl font-bold" style="display:none;">
+                            Tech Leadership
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Technology Leadership</h4>
+                                <p class="text-sm">Leading tech communities and driving innovation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/huddle global(1).jpeg" alt="Huddle Global 2022" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Huddle Global 2022</h4>
+                                <p class="text-sm">Showcasing startup solutions globally.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/huddle global 2,meet up with industry.jpeg" alt="Industry Networking" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Industry Connections</h4>
+                                <p class="text-sm">Building valuable relationships with tech leaders.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="journey-item">
+                        <img src="images/iedc summit 2022.jpeg" alt="IEDC Summit 2022">
+                        <div class="journey-overlay">
+                            <h4>IEDC Summit 2022</h4>
+                            <p>Participating in innovation and entrepreneurship development programs and initiatives.</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-item">
+                        <img src="images/meet with ceo of kerala startup mission(1).JPG" alt="KSUM CEO Meeting">
+                        <div class="journey-overlay">
+                            <h4>Strategic Leadership Meeting</h4>
+                            <p>Engaging with Kerala Startup Mission leadership to discuss innovation and startup ecosystem development.</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-item">
+                        <img src="images/459005180_1006343374837659_1455003721018411859_n.jpg" alt="Achievement Recognition">
+                        <div class="journey-overlay">
+                            <h4>Recognition & Awards</h4>
+                            <p>Receiving recognition for outstanding contributions to technology and innovation.</p>
+                        </div>
+                    </div>
+
+                    <div class="journey-item">
+                        <img src="images/WhatsApp Image 2024-06-30 at 19.36.27_85ff27b1.jpg" alt="Tech Conference">
+                        <div class="journey-overlay">
+                            <h4>Technology Conferences</h4>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/iedc summit 2022.jpeg" 
+                             alt="Leadership Role" 
+                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                             onerror="this.src='images/WhatsApp Image 2025-01-10 at 16.03.48_c0720739.jpg'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Leadership Excellence</h4>
+                                <p class="text-sm">Serving as IEEE SB LMC Chair and GDSC Lead.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/meet with ceo of kerala startup mission(1).JPG" 
+                             alt="Community Events" 
+                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                             onerror="this.src='images/WhatsApp Image 2025-02-02 at 20.36.22_d9579205.jpg'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Tech Community</h4>
+                                <p class="text-sm">Participating in conferences and sharing knowledge.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/1719945799029.jpg" alt="Project Development" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Project Innovation</h4>
+                                <p class="text-sm">Developing cutting-edge AI and ML solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/1(1).jpg" alt="Hackathon Success" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Hackathon Victories</h4>
+                                <p class="text-sm">Winning major hackathons with AI solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/2(1).jpg" alt="Startup Development" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Startup Innovation</h4>
+                                <p class="text-sm">Building scalable applications and securing funding.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/3.jpg" alt="Technical Excellence" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Technical Excellence</h4>
+                                <p class="text-sm">Advanced biometric authentication systems.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/284556103_1658182007890226_114831688156633635_n(1).jpg" alt="Machine Learning" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">ML & AI Solutions</h4>
+                                <p class="text-sm">Sophisticated ML models for real-world applications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/292459182_1677788409262919_6999296106717903028_n.jpg" alt="Social Impact" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Social Impact Projects</h4>
+                                <p class="text-sm">Creating technology solutions for social good.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/459005180_1006343374837659_1455003721018411859_n.jpg" 
+                             alt="Technical Presentation" 
+                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                             onerror="this.src='images/WhatsApp Image 2024-06-30 at 19.36.27_85ff27b1.jpg'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Knowledge Sharing</h4>
+                                <p class="text-sm">Presenting technical solutions and mentoring.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <img src="images/huddle global(1).jpeg" 
+                             alt="Innovation Focus" 
+                             class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                             onerror="this.src='images/1719945799029.jpg'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="absolute bottom-4 left-4 text-white">
+                                <h4 class="font-semibold mb-1">Innovation Focus</h4>
+                                <p class="text-sm">Continuous focus on innovative technology solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Skills & Technologies</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Frontend Skills -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900">Frontend</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">HTML5</span>
+                                <span class="text-sm text-gray-500">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-1000" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">CSS3</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-1000" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">JavaScript</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">React.js</span>
+                                <span class="text-sm text-gray-500">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-1000" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">Flutter</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Skills -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-server text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900">Backend & Languages</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">Python</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-600 h-3 rounded-full transition-all duration-1000" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">Java</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-600 h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">C/C++</span>
+                                <span class="text-sm text-gray-500">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-600 h-3 rounded-full transition-all duration-1000" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">C#/.NET</span>
+                                <span class="text-sm text-gray-500">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-600 h-3 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">Node.js</span>
+                                <span class="text-sm text-gray-500">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-green-500 to-teal-600 h-3 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database & Cloud Skills -->
+                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-database text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900">Database & Cloud</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">MySQL</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">MongoDB</span>
+                                <span class="text-sm text-gray-500">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-3 rounded-full transition-all duration-1000" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">Firebase</span>
+                                <span class="text-sm text-gray-500">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-3 rounded-full transition-all duration-1000" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">AWS</span>
+                                <span class="text-sm text-gray-500">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-3 rounded-full transition-all duration-1000" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-700">Git/GitHub</span>
+                                <span class="text-sm text-gray-500">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-gradient-to-r from-purple-500 to-pink-600 h-3 rounded-full transition-all duration-1000" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Achievements & Leadership</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    A journey of innovation, leadership, and recognition in technology and entrepreneurship
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Kerala Startup Mission Funding -->
+                <div class="group relative bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-yellow-100">
+                    <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                        <i class="fas fa-trophy text-4xl text-yellow-500"></i>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Kerala Startup Mission Funding</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Secured <span class="font-semibold text-orange-600">₹60,000</span> startup funding from KSUM for developing an innovative travel assistant solution for visually impaired individuals.
+                    </p>
+                    <div class="mt-6 flex items-center text-sm text-orange-600 font-semibold">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        2024
+                    </div>
+                </div>
+
+                <!-- Infosys Global Hackathon -->
+                <div class="group relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-100">
+                    <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                        <i class="fas fa-medal text-4xl text-blue-500"></i>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-medal text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Infosys Global Hackathon 2025</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <span class="font-semibold text-blue-600">Winner</span> of Agri Guru - Developed an AI-powered intelligent advisory system for farmers with real-time insights.
+                    </p>
+                    <div class="mt-6 flex items-center text-sm text-blue-600 font-semibold">
+                        <i class="fas fa-globe mr-2"></i>
+                        Global Recognition
+                    </div>
+                </div>
+
+                <!-- Leadership Roles -->
+                <div class="group relative bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100">
+                    <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                        <i class="fas fa-users text-4xl text-purple-500"></i>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Leadership Excellence</h3>
+                    <div class="space-y-2 text-gray-600">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-purple-400 mr-2 text-sm"></i>
+                            <span>IEEE SB LMC Chair</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-purple-400 mr-2 text-sm"></i>
+                            <span>GDSC Lead</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-purple-400 mr-2 text-sm"></i>
+                            <span>Mu Learn Campus Lead</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-purple-400 mr-2 text-sm"></i>
+                            <span>IEDC Finance & Student Lead</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Viksit Bharat -->
+                <div class="group relative bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-green-100">
+                    <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                        <i class="fas fa-flag text-4xl text-green-500"></i>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-flag text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Viksit Bharat Young Leaders</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Represented <span class="font-semibold text-green-600">Kerala</span> in Viksit Bharat Young Leaders Dialogue 2025 at Bharat Mandapam, New Delhi, in presence of Hon'ble PM Shri Narendra Modi.
+                    </p>
+                    <div class="mt-6 flex items-center text-sm text-green-600 font-semibold">
+                        <i class="fas fa-map-marker-alt mr-2"></i>
+                        New Delhi, 2025
+                    </div>
+                </div>
+
+                <!-- IDEA FEST Winner -->
+                <div class="group relative bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-red-100">
+                    <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                        <i class="fas fa-award text-4xl text-red-500"></i>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">IDEA FEST 2022 Winner</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        <span class="font-semibold text-red-600">Won</span> IDEA FEST 2022 conducted by Kerala Startup Mission (KSUM) for innovative project solutions.
+                    </p>
+                    <div class="mt-6 flex items-center text-sm text-red-600 font-semibold">
+                        <i class="fas fa-lightbulb mr-2"></i>
+                        Innovation Award
+                    </div>
+                </div>
+
+                <!-- GTech MuLearner -->
+                <div class="group relative bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-indigo-100">
+                    <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                        <i class="fas fa-graduation-cap text-4xl text-indigo-500"></i>
+                    </div>
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">GTech MuLearner Level 7</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Achieved <span class="font-semibold text-indigo-600">advanced level</span> certification in GTech MuLearner program, demonstrating continuous learning and skill development.
+                    </p>
+                    <div class="mt-6 flex items-center text-sm text-indigo-600 font-semibold">
+                        <i class="fas fa-certificate mr-2"></i>
+                        Level 7 Certified
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Stats -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">6+</div>
+                    <div class="text-gray-600">Major Awards</div>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">4</div>
+                    <div class="text-gray-600">Leadership Roles</div>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">₹60K</div>
+                    <div class="text-gray-600">Funding Raised</div>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <i class="fas fa-globe text-white text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">National</div>
+                    <div class="text-gray-600">Recognition</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">My Projects</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Innovative solutions spanning cloud computing, AI/ML, mobile development, and social impact technology
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Smart Wipe -->
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+                    <div class="relative p-8">
+                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                            <i class="fas fa-cloud text-4xl text-blue-500"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-cloud text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Smart Wipe</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Efficient and scalable cloud data deletion system using Invertible Bloom Filters, ensuring verifiable outsourced data deletion with low-complexity verification.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">C#</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">.NET Framework</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">SQL</span>
+                        </div>
+                        <div class="flex items-center text-blue-600 font-semibold text-sm">
+                            <i class="fas fa-code mr-2"></i>
+                            Cloud Computing
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agri Guru -->
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 relative">
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                            🏆 Winner
+                        </span>
+                    </div>
+                    <div class="relative p-8">
+                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                            <i class="fas fa-seedling text-4xl text-green-500"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-seedling text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Agri Guru</h3>
+                        <div class="text-sm text-orange-600 font-semibold mb-4">Infosys Hackathon Winner</div>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            AI-powered intelligent advisory system for farmers, providing real-time crop recommendations, weather alerts, and soil health insights.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">ReactJS</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Node.js</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Gemini API</span>
+                        </div>
+                        <div class="flex items-center text-green-600 font-semibold text-sm">
+                            <i class="fas fa-robot mr-2"></i>
+                            AI & Agriculture
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Farm Direct -->
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 relative">
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="bg-gradient-to-r from-emerald-400 to-teal-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                            💰 Funded
+                        </span>
+                    </div>
+                    <div class="relative p-8">
+                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                            <i class="fas fa-mobile-alt text-4xl text-purple-500"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Farm Direct</h3>
+                        <div class="text-sm text-emerald-600 font-semibold mb-4">KSUM Funded</div>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Scalable app enabling direct farmer-to-consumer sales with real-time inventory, secure orders, and Firebase-backed authentication.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Flutter</span>
+                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Firebase</span>
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">Dart</span>
+                        </div>
+                        <div class="flex items-center text-purple-600 font-semibold text-sm">
+                            <i class="fas fa-store mr-2"></i>
+                            E-commerce & Mobile
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dorsal Hand Vein Authentication -->
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+                    <div class="relative p-8">
+                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                            <i class="fas fa-hand-paper text-4xl text-red-500"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-hand-paper text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Dorsal Hand Vein Authentication</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Biometric authentication system based on dorsal hand vein patterns offering contactless, secure verification resistant to spoofing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm font-medium rounded-full">OpenCV</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Machine Learning</span>
+                        </div>
+                        <div class="flex items-center text-red-600 font-semibold text-sm">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Biometric Security
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fake Currency Detection -->
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
+                    <div class="relative p-8">
+                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                            <i class="fas fa-money-bill-wave text-4xl text-green-500"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-money-bill-wave text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Fake Currency Detection</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Advanced counterfeit currency detection system using computer vision and ML to analyze security features and detect anomalies in currency notes.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full">Python</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">OpenCV</span>
+                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Machine Learning</span>
+                        </div>
+                        <div class="flex items-center text-green-600 font-semibold text-sm">
+                            <i class="fas fa-eye mr-2"></i>
+                            Computer Vision
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Travel Assistant -->
+                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 relative">
+                    <div class="absolute top-4 left-4 z-10">
+                        <span class="bg-gradient-to-r from-indigo-400 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                            💰 ₹60K Funded
+                        </span>
+                    </div>
+                    <div class="relative p-8">
+                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                            <i class="fas fa-universal-access text-4xl text-indigo-500"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-universal-access text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Travel Assistant for Visually Impaired</h3>
+                        <div class="text-sm text-indigo-600 font-semibold mb-4">KSUM Funded ₹60K</div>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Innovative travel assistant solution for visually impaired individuals, providing accessibility features and navigation support.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">AI/ML</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Mobile App</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-800 text-sm font-medium rounded-full">Accessibility</span>
+                        </div>
+                        <div class="flex items-center text-indigo-600 font-semibold text-sm">
+                            <i class="fas fa-heart mr-2"></i>
+                            Social Impact
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Stats -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <i class="fas fa-project-diagram text-white text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">6+</div>
+                    <div class="text-gray-600">Major Projects</div>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">3</div>
+                    <div class="text-gray-600">Award Winners</div>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <i class="fas fa-rocket text-white text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">2</div>
+                    <div class="text-gray-600">Funded Projects</div>
+                </div>
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 mb-2">AI/ML</div>
+                    <div class="text-gray-600">Focus Area</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    Let's work together! I'm always open to discussing new opportunities and interesting projects.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Let's start a conversation</h3>
+                        <p class="text-gray-600 leading-relaxed mb-8">
+                            Feel free to reach out if you'd like to connect, collaborate, or discuss exciting opportunities in technology and innovation!
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4 group">
+                                <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-envelope text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
+                                    <a href="mailto:akshaykrishna.a.2002@gmail.com" class="text-blue-600 hover:text-blue-800 transition-colors duration-300">
+                                        akshaykrishna.a.2002@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 group">
+                                <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-phone text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Phone</h4>
+                                    <a href="tel:+919495339212" class="text-green-600 hover:text-green-800 transition-colors duration-300">
+                                        +91 9495339212
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 group">
+                                <div class="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-map-marker-alt text-white text-lg"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 mb-1">Location</h4>
+                                    <p class="text-purple-600">
+                                        Nedumangad, Thiruvananthapuram, Kerala
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="mt-8 pt-8 border-t border-blue-200">
+                            <h4 class="font-semibold text-gray-900 mb-4">Connect with me</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/AKSHAYKRISHNA012" 
+                                   target="_blank"
+                                   class="w-12 h-12 bg-gray-800 hover:bg-gray-900 text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                                    <i class="fab fa-github text-lg"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/akshay-krishna-a-749151222" 
+                                   target="_blank"
+                                   class="w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                                    <i class="fab fa-linkedin text-lg"></i>
+                                </a>
+                                <a href="https://twitter.com/akshaykrishna012" 
+                                   target="_blank"
+                                   class="w-12 h-12 bg-sky-500 hover:bg-sky-600 text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                                    <i class="fab fa-twitter text-lg"></i>
+                                </a>
+                                <a href="mailto:akshaykrishna.a.2002@gmail.com" 
+                                   class="w-12 h-12 bg-red-500 hover:bg-red-600 text-white rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg">
+                                    <i class="fas fa-envelope text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8 border border-gray-200">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send me a message</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="user_name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                <input type="text" 
+                                       id="user_name" 
+                                       name="user_name" 
+                                       placeholder="Your Name" 
+                                       required
+                                       class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-gray-400">
+                            </div>
+                            <div>
+                                <label for="user_email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" 
+                                       id="user_email" 
+                                       name="user_email" 
+                                       placeholder="your.email@example.com" 
+                                       required
+                                       class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-gray-400">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <input type="text" 
+                                   id="subject" 
+                                   name="subject" 
+                                   placeholder="What's this about?" 
+                                   required
+                                   class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-gray-400">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" 
+                                      name="message" 
+                                      rows="5" 
+                                      placeholder="Tell me about your project or idea..." 
+                                      required
+                                      class="w-full px-4 py-3 bg-white border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300 placeholder-gray-400 resize-none"></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                id="send-btn"
+                                class="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 px-8 rounded-xl hover:shadow-lg hover:scale-105 transform transition-all duration-300 focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Success/Error Notification -->
+            <div id="notification" class="fixed top-20 right-4 z-50 transform translate-x-full transition-transform duration-300"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Brand Section -->
+                <div>
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+                        Akshay Krishna A
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Python Full Stack Developer & Technology Enthusiast passionate about creating innovative solutions and leading tech communities.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary transition-colors duration-300">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-primary transition-colors duration-300">About</a></li>
+                        <li><a href="#skills" class="text-gray-400 hover:text-primary transition-colors duration-300">Skills</a></li>
+                        <li><a href="#achievements" class="text-gray-400 hover:text-primary transition-colors duration-300">Achievements</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-primary transition-colors duration-300">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-primary transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="font-semibold mb-4">Get In Touch</h4>
+                    <div class="space-y-2">
+                        <p class="text-gray-400">
+                            <i class="fas fa-envelope mr-2 text-primary"></i>
+                            akshaykrishna.a.2002@gmail.com
+                        </p>
+                        <p class="text-gray-400">
+                            <i class="fas fa-phone mr-2 text-primary"></i>
+                            +91 9495339212
+                        </p>
+                        <p class="text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-2 text-primary"></i>
+                            Kerala, India
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Section -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2025 Akshay Krishna A. All rights reserved.
+                </p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="https://github.com/AKSHAYKRISHNA012" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/akshay-krishna-a-749151222" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="https://twitter.com/akshaykrishna012" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
