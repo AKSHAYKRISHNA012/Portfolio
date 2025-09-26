@@ -110,73 +110,136 @@
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(45deg, #764ba2, #667eea);
         }
+
+        /* Glass morphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        /* Animated background gradient */
+        .animated-gradient {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #667eea);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Typewriter cursor effect */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* Interactive card glow */
+        .card-glow {
+            position: relative;
+        }
+
+        .card-glow::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            padding: 2px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card-glow:hover::before {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="font-poppins bg-gray-50">
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scroll-progress"></div>
     <!-- Navigation -->
-    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-lg transition-all duration-300">
+    <nav class="fixed top-0 w-full bg-white/10 backdrop-blur-xl border-b border-white/20 z-50 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0">
-                    <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent hover:scale-105 transition-transform duration-300">
-                        Akshay Krishna
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-purple-500 rounded-full flex items-center justify-center font-bold text-white text-lg shadow-lg hover:scale-110 transition-transform cursor-pointer">
+                        AK
+                    </div>
+                    <span class="font-bold text-lg text-white hidden sm:block">Akshay Krishna</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link relative text-white/90 hover:text-white font-medium transition-all duration-300 hover:scale-105 px-3 py-2">
+                        <i class="fas fa-home mr-2"></i>Home
+                        <div class="absolute inset-0 -z-10 bg-white/20 rounded-lg blur-sm opacity-0 hover:opacity-100 transition-opacity"></div>
+                    </a>
+                    <a href="#about" class="nav-link relative text-white/90 hover:text-white font-medium transition-all duration-300 hover:scale-105 px-3 py-2">
+                        <i class="fas fa-user mr-2"></i>About
+                        <div class="absolute inset-0 -z-10 bg-white/20 rounded-lg blur-sm opacity-0 hover:opacity-100 transition-opacity"></div>
+                    </a>
+                    <a href="#skills" class="nav-link relative text-white/90 hover:text-white font-medium transition-all duration-300 hover:scale-105 px-3 py-2">
+                        <i class="fas fa-code mr-2"></i>Skills
+                        <div class="absolute inset-0 -z-10 bg-white/20 rounded-lg blur-sm opacity-0 hover:opacity-100 transition-opacity"></div>
+                    </a>
+                    <a href="#achievements" class="nav-link relative text-white/90 hover:text-white font-medium transition-all duration-300 hover:scale-105 px-3 py-2">
+                        <i class="fas fa-trophy mr-2"></i>Achievements
+                        <div class="absolute inset-0 -z-10 bg-white/20 rounded-lg blur-sm opacity-0 hover:opacity-100 transition-opacity"></div>
+                    </a>
+                    <a href="#projects" class="nav-link relative text-white/90 hover:text-white font-medium transition-all duration-300 hover:scale-105 px-3 py-2">
+                        <i class="fas fa-folder mr-2"></i>Projects
+                        <div class="absolute inset-0 -z-10 bg-white/20 rounded-lg blur-sm opacity-0 hover:opacity-100 transition-opacity"></div>
+                    </a>
+                    <a href="#contact" class="nav-link relative text-white/90 hover:text-white font-medium transition-all duration-300 hover:scale-105 px-3 py-2">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                        <div class="absolute inset-0 -z-10 bg-white/20 rounded-lg blur-sm opacity-0 hover:opacity-100 transition-opacity"></div>
                     </a>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                        <a href="#about" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">About</a>
-                        <a href="#skills" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
-                        <a href="#achievements" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
-                        <a href="#projects" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                        <a href="#contact" class="nav-link text-gray-700 hover:text-primary transition-colors duration-300 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <button class="nav-toggle p-2 rounded-md text-gray-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary">
-                        <span class="sr-only">Open main menu</span>
-                        <div class="w-6 h-6 relative">
-                            <span class="hamburger-line absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out" style="top: 6px;"></span>
-                            <span class="hamburger-line absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out" style="top: 12px;"></span>
-                            <span class="hamburger-line absolute h-0.5 w-6 bg-current transform transition duration-300 ease-in-out" style="top: 18px;"></span>
-                        </div>
-                    </button>
-                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white hover:text-white/80 focus:outline-none p-2 rounded-lg hover:bg-white/20 transition-colors nav-toggle">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div class="mobile-menu md:hidden fixed top-16 right-0 w-80 h-screen bg-white shadow-2xl z-40">
+        <div class="mobile-menu md:hidden fixed top-16 right-0 w-80 h-screen bg-white/10 backdrop-blur-xl border-l border-white/20 shadow-2xl z-40">
             <div class="px-6 py-8">
                 <div class="space-y-6">
-                    <a href="#home" class="mobile-nav-link block text-gray-800 hover:text-primary transition-colors duration-300 text-lg font-medium py-3 border-b border-gray-100">
+                    <a href="#home" class="mobile-nav-link block text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 text-lg font-medium py-3 rounded-lg px-4">
                         <i class="fas fa-home mr-3"></i> Home
                     </a>
-                    <a href="#about" class="mobile-nav-link block text-gray-800 hover:text-primary transition-colors duration-300 text-lg font-medium py-3 border-b border-gray-100">
+                    <a href="#about" class="mobile-nav-link block text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 text-lg font-medium py-3 rounded-lg px-4">
                         <i class="fas fa-user mr-3"></i> About
                     </a>
-                    <a href="#skills" class="mobile-nav-link block text-gray-800 hover:text-primary transition-colors duration-300 text-lg font-medium py-3 border-b border-gray-100">
+                    <a href="#skills" class="mobile-nav-link block text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 text-lg font-medium py-3 rounded-lg px-4">
                         <i class="fas fa-code mr-3"></i> Skills
                     </a>
-                    <a href="#achievements" class="mobile-nav-link block text-gray-800 hover:text-primary transition-colors duration-300 text-lg font-medium py-3 border-b border-gray-100">
+                    <a href="#achievements" class="mobile-nav-link block text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 text-lg font-medium py-3 rounded-lg px-4">
                         <i class="fas fa-trophy mr-3"></i> Achievements
                     </a>
-                    <a href="#projects" class="mobile-nav-link block text-gray-800 hover:text-primary transition-colors duration-300 text-lg font-medium py-3 border-b border-gray-100">
+                    <a href="#projects" class="mobile-nav-link block text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 text-lg font-medium py-3 rounded-lg px-4">
                         <i class="fas fa-project-diagram mr-3"></i> Projects
                     </a>
-                    <a href="#contact" class="mobile-nav-link block text-gray-800 hover:text-primary transition-colors duration-300 text-lg font-medium py-3 border-b border-gray-100">
+                    <a href="#contact" class="mobile-nav-link block text-white/90 hover:text-white hover:bg-white/20 transition-all duration-300 text-lg font-medium py-3 rounded-lg px-4">
                         <i class="fas fa-envelope mr-3"></i> Contact
                     </a>
                 </div>
                 
-                <div class="mt-8 pt-6 border-t border-gray-200">
+                <div class="mt-8 pt-6 border-t border-white/20">
                     <div class="flex space-x-4 justify-center">
-                        <a href="https://github.com/AKSHAYKRISHNA012" class="w-10 h-10 bg-gray-800 text-white rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors duration-300">
+                        <a href="https://github.com/AKSHAYKRISHNA012" class="w-10 h-10 bg-white/20 text-white rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-300 backdrop-blur-sm">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://linkedin.com/in/akshay-krishna-a-749151222" class="w-10 h-10 bg-blue-600 text-white rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors duration-300">
+                        <a href="https://linkedin.com/in/akshay-krishna-a-749151222" class="w-10 h-10 bg-white/20 text-white rounded-lg flex items-center justify-center hover:bg-white/30 transition-colors duration-300 backdrop-blur-sm">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -185,60 +248,93 @@
         </div>
         
         <!-- Mobile Menu Overlay -->
-        <div class="mobile-overlay md:hidden fixed inset-0 bg-black bg-opacity-50 z-30 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+        <div class="mobile-overlay md:hidden fixed inset-0 bg-black/50 backdrop-blur-sm z-30 opacity-0 pointer-events-none transition-opacity duration-300"></div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23667eea" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden animated-gradient">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+        
+        <!-- Floating geometric shapes -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-20 h-20 bg-white/10 rounded-full animate-float"></div>
+            <div class="absolute top-3/4 right-1/4 w-16 h-16 bg-white/5 rotate-45" style="animation: float 8s ease-in-out infinite reverse;"></div>
+            <div class="absolute top-1/2 left-1/6 w-12 h-12 bg-white/10 rounded-full" style="animation: float 6s ease-in-out infinite 2s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="text-center lg:text-left space-y-8">
                     <div class="space-y-4">
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900">
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
                             Hi, I'm 
-                            <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-pulse-slow">
+                            <span class="bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent animate-pulse-slow">
                                 Akshay Krishna A
                             </span>
                         </h1>
-                        <p class="text-xl sm:text-2xl text-gray-600 font-medium">
+                        <p class="text-xl sm:text-2xl text-white/90 font-medium typing-cursor" id="hero-typing-text">
                             Python Full Stack Developer & Technology Enthusiast
                         </p>
-                        <p class="text-lg text-gray-500 max-w-2xl">
+                        <p class="text-lg text-white/80 max-w-2xl">
                             Passionate and results-driven Technology Enthusiast with strong analytical, problem-solving, and leadership skills, fueled by innovation and a deep interest in cutting-edge technologies.
                         </p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transform transition-all duration-300">
-                            <i class="fas fa-envelope mr-2"></i>
+                        <a href="#contact" class="group inline-flex items-center justify-center px-8 py-4 bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold rounded-full hover:bg-white/30 hover:scale-105 transform transition-all duration-300">
+                            <i class="fas fa-envelope mr-2 group-hover:animate-bounce"></i>
                             Get In Touch
+                            <div class="absolute inset-0 -z-10 bg-gradient-to-r from-yellow-300 to-pink-300 rounded-full blur-xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
                         </a>
-                        <a href="#projects" class="inline-flex items-center justify-center px-8 py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-white transition-all duration-300">
-                            <i class="fas fa-eye mr-2"></i>
+                        <a href="#projects" class="group inline-flex items-center justify-center px-8 py-4 border-2 border-white/50 text-white font-semibold rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 hover:scale-105">
+                            <i class="fas fa-eye mr-2 group-hover:animate-pulse"></i>
                             View My Work
                         </a>
                     </div>
+                    
+                    <!-- Floating stats -->
+                    <div class="hidden lg:flex absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-full space-y-4">
+                        <div class="glass rounded-lg p-4 text-center">
+                            <div class="text-2xl font-bold text-white">6+</div>
+                            <div class="text-white/80 text-sm">Awards</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="flex justify-center lg:justify-end">
-                    <div class="relative">
-                        <div class="w-80 h-80 rounded-full bg-gradient-to-br from-primary via-secondary to-accent p-1 animate-float">
-                            <div class="w-full h-full rounded-full bg-white p-2">
+                    <div class="relative group">
+                        <div class="w-80 h-80 rounded-full bg-gradient-to-br from-yellow-300 via-pink-300 to-purple-300 p-1 animate-float group-hover:animate-pulse">
+                            <div class="w-full h-full rounded-full bg-white/20 backdrop-blur-sm p-4 flex items-center justify-center">
                                 <img src="images/WhatsApp Image 2025-01-10 at 16.03.48_c0720739.jpg" 
                                      alt="Akshay Krishna" 
-                                     class="w-full h-full rounded-full object-cover"
+                                     class="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover:scale-110"
                                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div class="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-6xl font-bold" style="display:none;">
+                                <div class="w-full h-full rounded-full bg-gradient-to-br from-yellow-300 to-purple-300 flex items-center justify-center text-white text-6xl font-bold" style="display:none;">
                                     AK
                                 </div>
                             </div>
                         </div>
-                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-accent to-primary rounded-full flex items-center justify-center animate-pulse">
+                        
+                        <!-- Floating icons around profile -->
+                        <div class="absolute -top-6 -right-6 w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center animate-bounce group-hover:bg-white/30 transition-colors">
                             <i class="fas fa-code text-white text-2xl"></i>
                         </div>
-                        <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center animate-bounce">
+                        <div class="absolute -bottom-6 -left-6 w-14 h-14 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors" style="animation: bounce 2s infinite 0.5s;">
                             <i class="fas fa-laptop-code text-white text-xl"></i>
                         </div>
+                        <div class="absolute top-1/2 -left-10 w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors" style="animation: bounce 2s infinite 1s;">
+                            <i class="fas fa-brain text-white text-lg"></i>
+                        </div>
+                        
+                        <!-- Orbit animation -->
+                        <div class="absolute inset-0 border-2 border-white/10 rounded-full animate-spin" style="animation-duration: 20s;"></div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- Scroll indicator -->
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
+                <div class="flex flex-col items-center space-y-2">
+                    <span class="text-sm">Scroll Down</span>
+                    <i class="fas fa-chevron-down"></i>
                 </div>
             </div>
         </div>
@@ -854,180 +950,190 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900"></div>
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40"></div>
+        
+        <!-- Floating shapes -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-20 left-10 w-32 h-32 bg-white/5 rounded-full animate-float"></div>
+            <div class="absolute bottom-20 right-10 w-24 h-24 bg-white/10 rotate-45" style="animation: float 6s ease-in-out infinite reverse;"></div>
+            <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-white/5 rounded-full" style="animation: float 8s ease-in-out infinite 1s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900 mb-4">My Projects</h2>
-                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
-                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">My Projects</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-yellow-400 to-pink-400 mx-auto mb-6"></div>
+                <p class="text-white/80 max-w-3xl mx-auto text-lg">
                     Innovative solutions spanning cloud computing, AI/ML, mobile development, and social impact technology
                 </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Smart Wipe -->
-                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
-                    <div class="relative p-8">
-                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
-                            <i class="fas fa-cloud text-4xl text-blue-500"></i>
+                <div class="group glass-card rounded-2xl p-8 hover:scale-105 transition-all duration-500 hover-glow">
+                    <div class="relative">
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center backdrop-blur-sm animate-pulse">
+                            <i class="fas fa-cloud text-white text-lg"></i>
                         </div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
                             <i class="fas fa-cloud text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4">Smart Wipe</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">Smart Wipe</h3>
+                        <p class="text-white/80 leading-relaxed mb-6">
                             Efficient and scalable cloud data deletion system using Invertible Bloom Filters, ensuring verifiable outsourced data deletion with low-complexity verification.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">C#</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">.NET Framework</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">SQL</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">C#</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">.NET Framework</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">SQL</span>
                         </div>
-                        <div class="flex items-center text-blue-600 font-semibold text-sm">
-                            <i class="fas fa-code mr-2"></i>
+                        <div class="flex items-center text-blue-300 font-semibold text-sm">
+                            <i class="fas fa-code mr-2 animate-pulse"></i>
                             Cloud Computing
                         </div>
                     </div>
                 </div>
 
                 <!-- Agri Guru -->
-                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 relative">
-                    <div class="absolute top-4 left-4 z-10">
-                        <span class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                <div class="group glass-card rounded-2xl p-8 hover:scale-105 transition-all duration-500 hover-glow relative">
+                    <div class="absolute -top-2 -right-2 z-10">
+                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg animate-bounce">
                             🏆 Winner
-                        </span>
-                    </div>
-                    <div class="relative p-8">
-                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
-                            <i class="fas fa-seedling text-4xl text-green-500"></i>
                         </div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center backdrop-blur-sm animate-pulse">
+                            <i class="fas fa-seedling text-white text-lg"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
                             <i class="fas fa-seedling text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Agri Guru</h3>
-                        <div class="text-sm text-orange-600 font-semibold mb-4">Infosys Hackathon Winner</div>
-                        <p class="text-gray-600 leading-relaxed mb-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-green-300 transition-colors">Agri Guru</h3>
+                        <div class="text-sm text-orange-300 font-semibold mb-4">Infosys Hackathon Winner</div>
+                        <p class="text-white/80 leading-relaxed mb-6">
                             AI-powered intelligent advisory system for farmers, providing real-time crop recommendations, weather alerts, and soil health insights.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-cyan-100 text-cyan-800 text-sm font-medium rounded-full">ReactJS</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Node.js</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Gemini API</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">ReactJS</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Gemini API</span>
                         </div>
-                        <div class="flex items-center text-green-600 font-semibold text-sm">
-                            <i class="fas fa-robot mr-2"></i>
+                        <div class="flex items-center text-green-300 font-semibold text-sm">
+                            <i class="fas fa-robot mr-2 animate-pulse"></i>
                             AI & Agriculture
                         </div>
                     </div>
                 </div>
 
                 <!-- Farm Direct -->
-                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 relative">
-                    <div class="absolute top-4 left-4 z-10">
-                        <span class="bg-gradient-to-r from-emerald-400 to-teal-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                <div class="group glass-card rounded-2xl p-8 hover:scale-105 transition-all duration-500 hover-glow relative">
+                    <div class="absolute -top-2 -right-2 z-10">
+                        <div class="bg-gradient-to-r from-emerald-400 to-teal-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg animate-bounce">
                             💰 Funded
-                        </span>
-                    </div>
-                    <div class="relative p-8">
-                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
-                            <i class="fas fa-mobile-alt text-4xl text-purple-500"></i>
                         </div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center backdrop-blur-sm animate-pulse">
+                            <i class="fas fa-mobile-alt text-white text-lg"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
                             <i class="fas fa-mobile-alt text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Farm Direct</h3>
-                        <div class="text-sm text-emerald-600 font-semibold mb-4">KSUM Funded</div>
-                        <p class="text-gray-600 leading-relaxed mb-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">Farm Direct</h3>
+                        <div class="text-sm text-emerald-300 font-semibold mb-4">KSUM Funded</div>
+                        <p class="text-white/80 leading-relaxed mb-6">
                             Scalable app enabling direct farmer-to-consumer sales with real-time inventory, secure orders, and Firebase-backed authentication.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Flutter</span>
-                            <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm font-medium rounded-full">Firebase</span>
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">Dart</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Flutter</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Firebase</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Dart</span>
                         </div>
-                        <div class="flex items-center text-purple-600 font-semibold text-sm">
-                            <i class="fas fa-store mr-2"></i>
+                        <div class="flex items-center text-purple-300 font-semibold text-sm">
+                            <i class="fas fa-store mr-2 animate-pulse"></i>
                             E-commerce & Mobile
                         </div>
                     </div>
                 </div>
 
                 <!-- Dorsal Hand Vein Authentication -->
-                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
-                    <div class="relative p-8">
-                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
-                            <i class="fas fa-hand-paper text-4xl text-red-500"></i>
+                <div class="group glass-card rounded-2xl p-8 hover:scale-105 transition-all duration-500 hover-glow">
+                    <div class="relative">
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center backdrop-blur-sm animate-pulse">
+                            <i class="fas fa-hand-paper text-white text-lg"></i>
                         </div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
                             <i class="fas fa-hand-paper text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4">Dorsal Hand Vein Authentication</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-red-300 transition-colors">Dorsal Hand Vein Authentication</h3>
+                        <p class="text-white/80 leading-relaxed mb-6">
                             Biometric authentication system based on dorsal hand vein patterns offering contactless, secure verification resistant to spoofing.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full">Python</span>
-                            <span class="px-3 py-1 bg-red-100 text-red-800 text-sm font-medium rounded-full">OpenCV</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Machine Learning</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Python</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">OpenCV</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Machine Learning</span>
                         </div>
-                        <div class="flex items-center text-red-600 font-semibold text-sm">
-                            <i class="fas fa-shield-alt mr-2"></i>
+                        <div class="flex items-center text-red-300 font-semibold text-sm">
+                            <i class="fas fa-shield-alt mr-2 animate-pulse"></i>
                             Biometric Security
                         </div>
                     </div>
                 </div>
 
                 <!-- Fake Currency Detection -->
-                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100">
-                    <div class="relative p-8">
-                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
-                            <i class="fas fa-money-bill-wave text-4xl text-green-500"></i>
+                <div class="group glass-card rounded-2xl p-8 hover:scale-105 transition-all duration-500 hover-glow">
+                    <div class="relative">
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center backdrop-blur-sm animate-pulse">
+                            <i class="fas fa-money-bill-wave text-white text-lg"></i>
                         </div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
                             <i class="fas fa-money-bill-wave text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-4">Fake Currency Detection</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
+                        <h3 class="text-xl font-bold text-white mb-4 group-hover:text-green-300 transition-colors">Fake Currency Detection</h3>
+                        <p class="text-white/80 leading-relaxed mb-6">
                             Advanced counterfeit currency detection system using computer vision and ML to analyze security features and detect anomalies in currency notes.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm font-medium rounded-full">Python</span>
-                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">OpenCV</span>
-                            <span class="px-3 py-1 bg-green-100 text-green-800 text-sm font-medium rounded-full">Machine Learning</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Python</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">OpenCV</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Machine Learning</span>
                         </div>
-                        <div class="flex items-center text-green-600 font-semibold text-sm">
-                            <i class="fas fa-eye mr-2"></i>
+                        <div class="flex items-center text-green-300 font-semibold text-sm">
+                            <i class="fas fa-eye mr-2 animate-pulse"></i>
                             Computer Vision
                         </div>
                     </div>
                 </div>
 
                 <!-- Travel Assistant -->
-                <div class="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-gray-100 relative">
-                    <div class="absolute top-4 left-4 z-10">
-                        <span class="bg-gradient-to-r from-indigo-400 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                <div class="group glass-card rounded-2xl p-8 hover:scale-105 transition-all duration-500 hover-glow relative">
+                    <div class="absolute -top-2 -right-2 z-10">
+                        <div class="bg-gradient-to-r from-indigo-400 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg animate-bounce">
                             💰 ₹60K Funded
-                        </span>
-                    </div>
-                    <div class="relative p-8">
-                        <div class="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
-                            <i class="fas fa-universal-access text-4xl text-indigo-500"></i>
                         </div>
-                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center backdrop-blur-sm animate-pulse">
+                            <i class="fas fa-universal-access text-white text-lg"></i>
+                        </div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform duration-500 shadow-lg">
                             <i class="fas fa-universal-access text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Travel Assistant for Visually Impaired</h3>
-                        <div class="text-sm text-indigo-600 font-semibold mb-4">KSUM Funded ₹60K</div>
-                        <p class="text-gray-600 leading-relaxed mb-6">
+                        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">Travel Assistant for Visually Impaired</h3>
+                        <div class="text-sm text-indigo-300 font-semibold mb-4">KSUM Funded ₹60K</div>
+                        <p class="text-white/80 leading-relaxed mb-6">
                             Innovative travel assistant solution for visually impaired individuals, providing accessibility features and navigation support.
                         </p>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm font-medium rounded-full">AI/ML</span>
-                            <span class="px-3 py-1 bg-purple-100 text-purple-800 text-sm font-medium rounded-full">Mobile App</span>
-                            <span class="px-3 py-1 bg-pink-100 text-pink-800 text-sm font-medium rounded-full">Accessibility</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">AI/ML</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Mobile App</span>
+                            <span class="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-full backdrop-blur-sm">Accessibility</span>
                         </div>
-                        <div class="flex items-center text-indigo-600 font-semibold text-sm">
-                            <i class="fas fa-heart mr-2"></i>
+                        <div class="flex items-center text-indigo-300 font-semibold text-sm">
+                            <i class="fas fa-heart mr-2 animate-pulse"></i>
                             Social Impact
                         </div>
                     </div>
@@ -1036,33 +1142,33 @@
 
             <!-- Project Stats -->
             <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                <div class="text-center group">
+                    <div class="w-20 h-20 glass rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-project-diagram text-white text-2xl"></i>
                     </div>
-                    <div class="text-3xl font-bold text-gray-900 mb-2">6+</div>
-                    <div class="text-gray-600">Major Projects</div>
+                    <div class="text-3xl font-bold text-white mb-2 counter" data-target="6">0</div>
+                    <div class="text-white/80">Major Projects</div>
                 </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                <div class="text-center group">
+                    <div class="w-20 h-20 glass rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-award text-white text-2xl"></i>
                     </div>
-                    <div class="text-3xl font-bold text-gray-900 mb-2">3</div>
-                    <div class="text-gray-600">Award Winners</div>
+                    <div class="text-3xl font-bold text-white mb-2 counter" data-target="3">0</div>
+                    <div class="text-white/80">Award Winners</div>
                 </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                <div class="text-center group">
+                    <div class="w-20 h-20 glass rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-rocket text-white text-2xl"></i>
                     </div>
-                    <div class="text-3xl font-bold text-gray-900 mb-2">2</div>
-                    <div class="text-gray-600">Funded Projects</div>
+                    <div class="text-3xl font-bold text-white mb-2 counter" data-target="2">0</div>
+                    <div class="text-white/80">Funded Projects</div>
                 </div>
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-br from-red-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+                <div class="text-center group">
+                    <div class="w-20 h-20 glass rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                         <i class="fas fa-brain text-white text-2xl"></i>
                     </div>
-                    <div class="text-3xl font-bold text-gray-900 mb-2">AI/ML</div>
-                    <div class="text-gray-600">Focus Area</div>
+                    <div class="text-3xl font-bold text-white mb-2">AI/ML</div>
+                    <div class="text-white/80">Focus Area</div>
                 </div>
             </div>
         </div>
@@ -1319,5 +1425,6 @@
     <script src="enhanced-contact.js"></script>
     <script src="performance-monitor.js"></script>
     <script src="admin-panel.js"></script>
+    <script src="frontend-enhancements.js"></script>
 </body>
 </html>
