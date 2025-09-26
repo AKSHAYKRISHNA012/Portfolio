@@ -8,45 +8,183 @@
     }
 })();
 
-// Mobile Navigation Toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navMenu = document.querySelector('.nav-menu');
-
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+// Page Loading Animation
+window.addEventListener('load', () => {
+    const loading = document.getElementById('loading');
+    if (loading) {
+        setTimeout(() => {
+            loading.style.opacity = '0';
+            setTimeout(() => {
+                loading.style.display = 'none';
+            }, 500);
+        }, 1000);
+    }
+    
+    // Initialize animations
+    initializeAnimations();
 });
 
-// Close mobile menu when clicking on a nav link
-document.querySelectorAll('.nav-link').forEach(link => {
+// Scroll Progress Bar
+function updateScrollProgress() {
+    const scrollProgress = document.getElementById('scroll-progress');
+    const scrollTop = window.pageYOffset;
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / documentHeight) * 100;
+    
+    if (scrollProgress) {
+        scrollProgress.style.width = scrollPercent + '%';
+    }
+}
+
+// Back to Top Button
+function initializeBackToTop() {
+    const backToTopBtn = document.getElementById('back-to-top');
+    
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.opacity = '1';
+                backToTopBtn.style.pointerEvents = 'auto';
+            } else {
+                backToTopBtn.style.opacity = '0';
+                backToTopBtn.style.pointerEvents = 'none';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+// Enhanced Mobile Navigation
+const navToggle = document.querySelector('.nav-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+const mobileOverlay = document.querySelector('.mobile-overlay');
+const hamburgerLines = document.querySelectorAll('.hamburger-line');
+
+function toggleMobileMenu() {
+    const isActive = mobileMenu.classList.contains('active');
+    
+    if (isActive) {
+        closeMobileMenu();
+    } else {
+        openMobileMenu();
+    }
+}
+
+function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    mobileOverlay.style.opacity = '1';
+    mobileOverlay.style.pointerEvents = 'auto';
+    
+    // Animate hamburger to X
+    hamburgerLines[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+    hamburgerLines[1].style.opacity = '0';
+    hamburgerLines[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+    
+    document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+    mobileMenu.classList.remove('active');
+    mobileOverlay.style.opacity = '0';
+    mobileOverlay.style.pointerEvents = 'none';
+    
+    // Reset hamburger
+    hamburgerLines[0].style.transform = 'none';
+    hamburgerLines[1].style.opacity = '1';
+    hamburgerLines[2].style.transform = 'none';
+    
+    document.body.style.overflow = 'auto';
+}
+
+// Event Listeners
+if (navToggle) {
+    navToggle.addEventListener('click', toggleMobileMenu);
+}
+
+if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+}
+
+// Close mobile menu when clicking on nav links
+document.querySelectorAll('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
+        closeMobileMenu();
     });
 });
 
-// Smooth scrolling for navigation links
+// Close mobile menu on escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeMobileMenu();
+    }
+});
+
+// Scroll event listeners
+window.addEventListener('scroll', () => {
+    updateScrollProgress();
+    updateNavbar();
+});
+
+// Enhanced Smooth Scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
             });
         }
     });
 });
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
+// Enhanced Navbar Scroll Effect
+function updateNavbar() {
+    const navbar = document.querySelector('nav');
     if (window.scrollY > 100) {
         navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        navbar.style.backdropFilter = 'blur(20px)';
+        navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
+        navbar.style.background = 'rgba(255, 255, 255, 0.90)';
+        navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
     }
+}
+
+// Initialize Animations on Scroll
+function initializeAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in-up');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all sections and cards
+    document.querySelectorAll('section, .achievement-card, .project-card, .skill-category').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Initialize all features
+document.addEventListener('DOMContentLoaded', () => {
+    initializeBackToTop();
+    updateScrollProgress();
 });
 
 // Skill bars animation
