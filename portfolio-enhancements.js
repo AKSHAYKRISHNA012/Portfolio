@@ -12,6 +12,7 @@ class PortfolioEnhancements {
         this.setupProjectFilters();
         this.setupTestimonialSlider();
         this.addSocialShareButtons();
+        this.setupMediumIntegration();
     }
 
     // Enhanced theme toggle in navigation
@@ -277,6 +278,57 @@ class PortfolioEnhancements {
         `;
         
         document.body.appendChild(shareContainer);
+    }
+
+    // Medium blog integration
+    setupMediumIntegration() {
+        // Track blog clicks for analytics
+        const blogLinks = document.querySelectorAll('a[href*="medium.com"]');
+        
+        blogLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Track Medium blog clicks
+                if (window.portfolioAnalytics) {
+                    window.portfolioAnalytics.logEvent('medium_blog_click', {
+                        article_title: link.closest('article')?.querySelector('h3')?.textContent || 'Medium Profile',
+                        timestamp: new Date().toISOString(),
+                        session_id: window.portfolioAnalytics.sessionId
+                    });
+                }
+                
+                // Add visual feedback
+                link.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    link.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Add read time estimation for blog articles
+        const blogArticles = document.querySelectorAll('#blog article');
+        blogArticles.forEach(article => {
+            const content = article.querySelector('p')?.textContent || '';
+            const wordCount = content.split(' ').length;
+            const readTime = Math.max(1, Math.ceil(wordCount / 200)); // 200 words per minute
+            
+            const readTimeElement = article.querySelector('.text-gray-500 span:last-child');
+            if (readTimeElement && !readTimeElement.textContent.includes('min read')) {
+                readTimeElement.textContent = `${readTime} min read`;
+            }
+        });
+
+        // Add hover effects for blog cards
+        blogArticles.forEach(article => {
+            article.addEventListener('mouseenter', () => {
+                article.style.transform = 'translateY(-8px) scale(1.02)';
+                article.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+            });
+            
+            article.addEventListener('mouseleave', () => {
+                article.style.transform = 'translateY(0) scale(1)';
+                article.style.boxShadow = '';
+            });
+        });
     }
 
     // Theme notification
