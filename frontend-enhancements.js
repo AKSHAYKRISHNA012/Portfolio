@@ -13,6 +13,8 @@ class FrontendEnhancements {
         this.setupHoverEffects();
         this.setupLoadingAnimations();
         this.setupCursorEffects();
+        this.setupCounterAnimations();
+        this.addLoadingIndicator();
     }
 
     // Advanced scroll-triggered animations
@@ -439,6 +441,68 @@ class FrontendEnhancements {
 
         // Start typing effect after 2 seconds
         setTimeout(typeEffect, 2000);
+    }
+
+    // Counter animation for project stats
+    setupCounterAnimations() {
+        const counters = document.querySelectorAll('.counter');
+        
+        const observerOptions = {
+            threshold: 0.7,
+            rootMargin: '0px'
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    let count = 0;
+                    const increment = target / 50; // Animation duration control
+                    
+                    const updateCount = () => {
+                        if (count < target) {
+                            count += increment;
+                            counter.textContent = Math.ceil(count);
+                            requestAnimationFrame(updateCount);
+                        } else {
+                            counter.textContent = target + '+';
+                        }
+                    };
+                    
+                    updateCount();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
+    }
+
+    // Enhanced loading indicator
+    addLoadingIndicator() {
+        const loadingOverlay = document.createElement('div');
+        loadingOverlay.className = 'fixed inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center z-50';
+        loadingOverlay.innerHTML = `
+            <div class="text-center">
+                <div class="w-16 h-16 border-4 border-white/20 border-t-white rounded-full animate-spin mb-4"></div>
+                <div class="text-white text-xl font-semibold mb-2">Loading Portfolio</div>
+                <div class="text-white/80">Initializing interactive elements...</div>
+            </div>
+        `;
+        
+        document.body.appendChild(loadingOverlay);
+        
+        // Remove loading overlay after everything loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingOverlay.style.opacity = '0';
+                loadingOverlay.style.transition = 'opacity 0.5s ease-out';
+                setTimeout(() => loadingOverlay.remove(), 500);
+            }, 1000);
+        });
     }
 }
 
