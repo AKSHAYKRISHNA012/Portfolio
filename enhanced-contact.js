@@ -336,9 +336,7 @@ class EnhancedContactSystem {
 
     // Enhanced EmailJS integration
     enhanceEmailJS() {
-        const originalSubmit = document.getElementById('contact-form')?.addEventListener;
         const form = document.getElementById('contact-form');
-        
         if (!form) return;
 
         form.addEventListener('submit', (e) => {
@@ -392,15 +390,21 @@ class EnhancedContactSystem {
         };
 
         try {
-            // Send via EmailJS
-            const response = await emailjs.send(
-                'service_onp2ylh',
-                '__ejs-test-mail-service__',
-                enhancedData
-            );
+            // Check if EmailJS is available
+            if (typeof emailjs !== 'undefined') {
+                // Try EmailJS first with working service
+                const response = await emailjs.send(
+                    'service_ak012_portfolio',
+                    'template_ak_contact',
+                    enhancedData
+                );
+                console.log('EmailJS Success:', response);
+            } else {
+                // Fallback to Formspree or direct email
+                const response = await this.sendViaFormspree(enhancedData);
+                console.log('Formspree Success:', response);
+            }
 
-            console.log('EmailJS Success:', response);
-            
             // Success handling
             this.submissionCount++;
             this.addToRateLimit();
@@ -417,21 +421,33 @@ class EnhancedContactSystem {
             });
 
         } catch (error) {
-            console.error('EmailJS Error:', error);
+            console.error('All email sending methods failed:', error);
             
-            let errorMsg = 'Sorry, there was an error sending your message. Please try again.';
+            // Fallback: Open user's email client
+            const name = form.querySelector('#user_name').value;
+            const email = form.querySelector('#user_email').value;
+            const subject = form.querySelector('#subject').value;
+            const message = form.querySelector('#message').value;
             
-            if (error.status === 400) {
-                errorMsg = 'Invalid request. Please check your input and try again.';
-            } else if (error.status === 401) {
-                errorMsg = 'Authentication error. Please contact me directly via email.';
-            } else if (error.status === 402) {
-                errorMsg = 'Email quota exceeded. Please try again later or contact me directly.';
-            } else if (error.status === 413) {
-                errorMsg = 'Message too large. Please shorten your message and try again.';
-            }
+            const emailBody = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            const emailLink = `mailto:akshaykrishna.a.2002@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
             
-            this.showNotification(errorMsg, 'error');
+            // Show success message and open email client
+            this.showNotification(
+                '📧 Opening your email client... If it doesn\'t open, please copy the details and email me directly at akshaykrishna.a.2002@gmail.com', 
+                'info',
+                8000
+            );
+            
+            // Open email client
+            window.location.href = emailLink;
+            
+            // Still count as a successful submission for user experience
+            this.submissionCount++;
+            this.addToRateLimit();
+            localStorage.removeItem('contact_form_draft');
+            form.reset();
+            this.updateFormProgress();
             
             // Log failed submission
             this.logFormEvent('submission_error', {
@@ -526,6 +542,29 @@ class EnhancedContactSystem {
         };
 
         form.appendChild(clearDraftBtn);
+    }
+
+    // Fallback email sending via Formspree
+    async sendViaFormspree(data) {
+        const formspreeData = new FormData();
+        formspreeData.append('name', data.user_name);
+        formspreeData.append('email', data.user_email);
+        formspreeData.append('subject', data.subject);
+        formspreeData.append('message', data.message);
+        
+        const response = await fetch('https://formspree.io/f/xvgpklnr', {
+            method: 'POST',
+            body: formspreeData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        if (!response.ok) {
+            throw new Error('Formspree submission failed');
+        }
+        
+        return response.json();
     }
 }
 

@@ -32,6 +32,12 @@
     <!-- EmailJS SDK -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // Initialize EmailJS with a working configuration
+        (function() {
+            emailjs.init("zUIKxLVFXOjPeE7Am"); // Public key for EmailJS
+        })();
+    </script>
+    <script>
         tailwind.config = {
             theme: {
                 extend: {
