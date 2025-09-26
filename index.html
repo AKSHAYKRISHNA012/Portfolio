@@ -1288,6 +1288,22 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
+    <!-- Analytics Dashboard Button (for admin) -->
+    <button id="analytics-trigger" 
+            class="fixed bottom-24 right-8 w-12 h-12 bg-gradient-to-r from-purple-400 to-pink-500 text-white rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-110 z-50 group"
+            onclick="window.portfolioAnalytics?.showDashboard()"
+            title="View Analytics Dashboard (Ctrl+Shift+A)">
+        <i class="fas fa-chart-line group-hover:animate-pulse"></i>
+    </button>
+
+    <!-- Performance Monitor Button -->
+    <button id="performance-trigger" 
+            class="fixed bottom-40 right-8 w-12 h-12 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-full shadow-lg hover:shadow-xl transform transition-all duration-300 hover:scale-110 z-50 group"
+            onclick="window.performanceMonitor?.showPerformanceDashboard()"
+            title="View Performance Dashboard (Ctrl+Shift+P)">
+        <i class="fas fa-tachometer-alt group-hover:animate-spin"></i>
+    </button>
+    
     <!-- Loading Spinner -->
     <div id="loading" class="fixed inset-0 bg-white z-[9999] flex items-center justify-center">
         <div class="relative">
@@ -1299,5 +1315,9 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="analytics.js"></script>
+    <script src="enhanced-contact.js"></script>
+    <script src="performance-monitor.js"></script>
+    <script src="admin-panel.js"></script>
 </body>
 </html>
