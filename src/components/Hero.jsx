@@ -12,6 +12,8 @@ import {
 } from 'lucide-react';
 import { Github, Linkedin } from './SocialIcons';
 
+import akshayPhoto from '../assets/akshay.jpg';
+
 export default function Hero({ onOpenResume }) {
   const titles = [
     'Python Full-Stack Engineer',
@@ -229,7 +231,7 @@ export default function Hero({ onOpenResume }) {
               maxHeight: '380px'
             }}>
               <img 
-                src="/akshay.jpg" 
+                src={akshayPhoto} 
                 alt="Akshay Krishna A"
                 style={{
                   width: '100%',

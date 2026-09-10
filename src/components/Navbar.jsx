@@ -13,6 +13,8 @@ import {
   Sparkles
 } from 'lucide-react';
 
+import akshayPhoto from '../assets/akshay.jpg';
+
 export default function Navbar({ onOpenResume, onOpenTerminal }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -80,7 +82,7 @@ export default function Navbar({ onOpenResume, onOpenTerminal }) {
             boxShadow: '0 0 12px rgba(99, 102, 241, 0.4)'
           }}>
             <img 
-              src="/akshay.jpg" 
+              src={akshayPhoto} 
               alt="Akshay Krishna A"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />

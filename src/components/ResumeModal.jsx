@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, Download, Printer, Mail, Phone, MapPin, Award, Briefcase, GraduationCap, Code2 } from 'lucide-react';
 import { Github, Linkedin } from './SocialIcons';
+import akshayPhoto from '../assets/akshay.jpg';
 
 export default function ResumeModal({ isOpen, onClose }) {
   if (!isOpen) return null;
@@ -89,7 +90,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               flexShrink: 0
             }}>
               <img 
-                src="/akshay.jpg" 
+                src={akshayPhoto} 
                 alt="Akshay Krishna A"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
               />
